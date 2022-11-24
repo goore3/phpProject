@@ -11,7 +11,7 @@ class Movies {
   */
   public static function getAllMovies() {
     $conn = new Db();
-    $response = $conn->execQuery('SELECT id, title, imdb_rating, release_year FROM movies');
+    $response = $conn->execQuery('SELECT id, title, description, imdb_rating, release_year FROM movies');
     return $response;
   }
 
@@ -19,12 +19,18 @@ class Movies {
   public static function findMovie($text) {
     $conn = new Db();
     $response = $conn -> execQuery("
-      SELECT id, title, imdb_rating, release_year
+      SELECT id, title, description, imdb_rating, release_year
       FROM movies
-      WHERE title='". $text['search_text'] . "'
+      WHERE title LIKE '%". $text['search_text'] . "%' OR description LIKE '%" . $text['search_text'] . "%'
     ");
     return $response;
   }
+
+//   $response = $conn -> execQuery("
+//   SELECT id, title, description, imdb_rating, release_year
+//   FROM movies
+//   WHERE title='%". $text['search_text'] . "%' OR description='%" . $text['search_text'] . "%'
+// ");
     /**
   * Método para obtenção do dataset de todos os filmes
   *
@@ -33,7 +39,7 @@ class Movies {
   public static function getTop5MoviesByRating() {
     $conn = new Db();
     $response = $conn->execQuery('
-    SELECT id, title, imdb_rating, release_year 
+    SELECT id, title, description, imdb_rating, release_year 
     FROM movies 
     ORDER BY imdb_rating DESC 
     LIMIT 5');
@@ -73,7 +79,7 @@ class Movies {
   */
   public static function findMovieById(int $id) {
     $conn = new Db();
-    $response = $conn->execQuery('SELECT id, title, imdb_rating, release_year FROM movies WHERE id = ?', array('i', array($id)));
+    $response = $conn->execQuery('SELECT id, title, imdb_rating, description, release_year FROM movies WHERE id = ?', array('i', array($id)));
     return $response;
   }
 }
