@@ -5,6 +5,8 @@
 <?php 
   $movieName = $data['movies'][0]['title']; 
   $imdbRating = $data['movies'][0]['imdb_rating']; 
+  $release_year = $data['movies'][0]['release_year'];
+  $description = $data['movies'][0]['description'];
   $id = $data['id']; 
 ?>
     <div class="container">
@@ -23,8 +25,16 @@
             <input required type="text" name="title" value="<?php echo $movieName; ?>" >
             <br>
             <br>
-            <label>IMDB Rating</label>
+            <label>Description:</label>
+            <input required type="text" name="description" value="<?php echo $description; ?>">
+            <br>
+            <br>
+            <label>IMDB Rating:</label>
             <input required type="number" name="imdb_rating" value="<?php echo $imdbRating; ?>">
+            <br>
+            <br>
+            <label>Release Date:</label>
+            <input required type="number" name="release_year" value="<?php echo $release_year; ?>">
             <button type="submit">Edit Movie</button>
         </form> 
       
