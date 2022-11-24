@@ -15,7 +15,13 @@
             echo '<h5>Release Date:</h5><p>' . $movie['release_year'] . '</p>';
           }
         ?>
-      <?php echo '<a class="btn btn-primary" href="'.PROJECT_URL.'">Back</a>' ?>
+      <?php echo 
+	  '
+	  <a class="btn btn-primary" href="'.PROJECT_URL.'/movie/index">Back</a>
+	  <a class="btn btn-outline-warning" style="margin-left:20px;" href="'.PROJECT_URL.'/movie/update/' . $movie['id']  . '"> Edit </a>
+	  <a class="btn btn-outline-danger" style="margin-left:20px;" href="'.PROJECT_URL.'/movie/delete/' . $movie['id']  . '"> Delete </a>	  
+	  '?>
+	  
       <!-- </div> -->
 
 <?php
