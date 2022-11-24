@@ -25,6 +25,12 @@
     <nav class="navbar navbar-expand-md navbar-light bg-light">
         <div class="container">
         <a class="navbar-brand" href="<?php echo PROJECT_URL?>">Movies App</a>
+        <p><?php 
+          session_start();
+          if(isset($_SESSION['username'])){
+            echo $_SESSION['username'];
+          }   
+        ?></p>   
         <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
           aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
