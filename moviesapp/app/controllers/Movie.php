@@ -16,7 +16,8 @@ class Movie extends Controller {
     $Movies = $this->model('Movies');
     if($_POST) {
       $text = $_POST;
-      $Movies::findMovie($text);
+      $data = $Movies::findMovie($text);
+      $this -> view('movie/search', ['movies' => $data]);
     }
   }
 
