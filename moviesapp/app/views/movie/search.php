@@ -4,7 +4,7 @@
 
     <div class="container">
     
-      <h1>Show Top 5 movies by rating:</h1>
+      <h1>Movies that have '<?php echo $_POST['search_text'] ?>' in them:</h1>
 
       <div class="row row-cols-1 row-cols-md-3 g-4">
         <?php
