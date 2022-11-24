@@ -84,4 +84,10 @@ class Movies {
     $response = $conn->execQuery('SELECT id, title, imdb_rating, description, release_year FROM movies WHERE id = ?', array('i', array($id)));
     return $response;
   }
+  
+    public static function findMovieByTitle(string $title) {
+    $conn = new Db();
+    $response = $conn->execQuery('SELECT id, title, imdb_rating, description, release_year FROM movies WHERE title = "' . $title . '"');
+    return $response;
+  }
 }

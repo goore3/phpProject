@@ -25,11 +25,13 @@ class Movie extends Controller {
     
     if($_POST) {
       $movie = $_POST;
-    
       $Movies = $this->model('Movies');
       $Movies::insertMovie($movie);
-
-      header("Location: ".PROJECT_URL."/movie");
+	  $uploaderService = new UploaderService();
+	  $movieToImage = $Movies::findMovieByTitle($_POST['title']);
+	  $_FILES['file']['name'] = $movieToImage[0]['id'] . ".jpg";
+      $uploaderService->uploadFile($_FILES['file']);
+      header("Location: ".PROJECT_URL);
       exit;
     }
 
@@ -94,26 +96,7 @@ class Movie extends Controller {
     }
   }
 
-  public function upload() {
-
-    // necessita de ter um input do tipo texto/number
-    if($_POST) {
-      $uploaderService = new UploaderService();
-
-      if(count($_FILES['files']['name']) > 1) {
-        $uploaderService->upload($_FILES['files']);
-      } else {
-        $uploaderService->uploadFile($_FILES['file']);
-      }
-      exit;
-    }
-    $Movies = $this->model('Movies'); // é retornado o model Movies()
-    
-    $this->view('movie/upload', []);
-  }
 
 }
 
-// :: Scope Resolution Operator
-// Utilizado para acesso às propriedades e métodos das classes
 ?>

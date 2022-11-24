@@ -24,7 +24,7 @@
     <!-- place navbar here -->
     <nav class="navbar navbar-expand-md navbar-light bg-light">
         <div class="container">
-        <a class="navbar-brand" href="#">Movies App</a>
+        <a class="navbar-brand" href="<?php echo PROJECT_URL?>">Movies App</a>
         <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
           aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -39,7 +39,6 @@
               <div class="dropdown-menu" aria-labelledby="dropdownId">
                 <a class="dropdown-item" href="<?php echo PROJECT_URL; ?>/movie/create">Create Movie</a>
                 <a class="dropdown-item" href="<?php echo PROJECT_URL; ?>/movie/index">List of movies</a>
-                <a class="dropdown-item" href="<?php echo PROJECT_URL; ?>/movie/upload">Upload</a>
               </div>
             </li>
           </ul>
