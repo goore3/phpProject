@@ -21,31 +21,45 @@
 
 <body>
   <header>
-    <!-- place navbar here -->
     <nav class="navbar navbar-expand-md navbar-light bg-light">
         <div class="container">
         <a class="navbar-brand" href="<?php echo PROJECT_URL?>">Movies App</a>
-        <p><?php 
-          session_start();
-          if(isset($_SESSION['username'])){
-            echo $_SESSION['username'];
-          }   
-        ?></p>   
         <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
           aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="collapsibleNavId">
-          <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+            <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+              <li class="nav-item">
+                <p class="nav-item"><?php
+                  if(session_status() != 2) { 
+                    session_start();
+                  }
+                  if(isset($_SESSION['username'])){
+                    echo "Welcome ". $_SESSION['username'];
+                  }?>
+                </p>
+              </li>   
             <li class="nav-item">
               <a class="nav-link active" href="<?php echo PROJECT_URL; ?>/home/index" aria-current="page">Home <span class="visually-hidden">(current)</span></a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Movies</a>
               <div class="dropdown-menu" aria-labelledby="dropdownId">
+                <?php if(isset($_SESSION['username'])){?>
                 <a class="dropdown-item" href="<?php echo PROJECT_URL; ?>/movie/create">Create Movie</a>
+                <?php } ?>
                 <a class="dropdown-item" href="<?php echo PROJECT_URL; ?>/movie/index">List of movies</a>
               </div>
+            </li>
+            <li>
+              <?php 
+                if(isset($_SESSION['username'])){
+                  echo '<a class="nav-link active" href="' . PROJECT_URL . '/user/logout" aria-current="page"> Logout </a>'; 
+                } else {
+                  echo '<a class="nav-link active" href="' . PROJECT_URL . '/user/login" aria-current="page"> Login </a>';
+                }
+              ?>
             </li>
           </ul>
           <form class="d-flex my-2 my-lg-0" method="POST" action="<?php echo PROJECT_URL; ?>/movie/search">
