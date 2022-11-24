@@ -49,8 +49,8 @@ class Movies {
   public static function insertMovie($movie) {
     $conn = new Db();
     $response = $conn->execQueryInsertOrDelete('
-    INSERT INTO movies (title, imdb_rating) VALUES (?, ?)
-    ',array('ss', [$movie['title'],$movie['imdb_rating']]));
+    INSERT INTO movies (title, description, imdb_rating, release_year) 
+    VALUES ("'. $movie['title'] . '","'. $movie['description'] . '","' . $movie['imdb_rating'] . '","' . $movie['release_year'] .'")');
     return $response;
   }
 
