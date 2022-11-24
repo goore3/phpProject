@@ -58,8 +58,10 @@ class Movies {
   public static function updateMovie($movie, $id) {
     $conn = new Db();
     $response = $conn->execQueryInsertOrDelete('
-    UPDATE movies set title=?, imdb_rating=? where id=?
-    ',array('ssi', [$movie['title'], $movie['imdb_rating'], $id]));
+    UPDATE movies set 
+    title="'. $movie['title'] . '",description="' . $movie['description'] . '", imdb_rating="'. $movie['imdb_rating'] .'", release_year="'. $movie['release_year'] . '" 
+    where id="' . $id . '"
+    ');
     return $response;
   }
 
