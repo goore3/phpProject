@@ -26,12 +26,7 @@ class Movies {
     return $response;
   }
 
-//   $response = $conn -> execQuery("
-//   SELECT id, title, description, imdb_rating, release_year
-//   FROM movies
-//   WHERE title='%". $text['search_text'] . "%' OR description='%" . $text['search_text'] . "%'
-// ");
-    /**
+  /**
   * Método para obtenção do dataset de todos os filmes
   *
   * @return   array
@@ -82,12 +77,6 @@ class Movies {
   public static function findMovieById(int $id) {
     $conn = new Db();
     $response = $conn->execQuery('SELECT id, title, imdb_rating, description, release_year FROM movies WHERE id = ?', array('i', array($id)));
-    return $response;
-  }
-  
-    public static function findMovieByTitle(string $title) {
-    $conn = new Db();
-    $response = $conn->execQuery('SELECT id, title, imdb_rating, description, release_year FROM movies WHERE title = "' . $title . '"');
     return $response;
   }
 }

@@ -7,15 +7,9 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
   <!-- Bootstrap CSS v5.2.1 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css">
-  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-  <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
-  <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
 
 </head>
 
@@ -24,7 +18,13 @@
     <!-- place navbar here -->
     <nav class="navbar navbar-expand-md navbar-light bg-light">
         <div class="container">
-        <a class="navbar-brand" href="<?php echo PROJECT_URL?>">Movies App</a>
+        <a class="navbar-brand" href="#">Movies App</a>
+        <p><?php 
+          session_start();
+          if(isset($_SESSION['username'])){
+            echo $_SESSION['username'];
+          }   
+        ?></p>   
         <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
           aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -39,6 +39,7 @@
               <div class="dropdown-menu" aria-labelledby="dropdownId">
                 <a class="dropdown-item" href="<?php echo PROJECT_URL; ?>/movie/create">Create Movie</a>
                 <a class="dropdown-item" href="<?php echo PROJECT_URL; ?>/movie/index">List of movies</a>
+                <a class="dropdown-item" href="<?php echo PROJECT_URL; ?>/movie/upload">Upload</a>
               </div>
             </li>
           </ul>
