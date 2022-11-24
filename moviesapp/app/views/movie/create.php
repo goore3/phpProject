@@ -13,8 +13,16 @@
             <input required type="text" name="title">
             <br>
             <br>
+            <label>Description</label>
+            <input required type="text" name="description">
+            <br>
+            <br>
             <label>IMDB Rating</label>
             <input required type="number" name="imdb_rating">
+            <br>
+            <br>
+            <label>Date of Release</label>
+            <input required type="number" name="release_year">
             <button type="submit">Create Movie</button>
         </form> 
       
