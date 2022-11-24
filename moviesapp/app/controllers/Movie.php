@@ -22,7 +22,11 @@ class Movie extends Controller {
   }
 
   public function create() {
-    
+    session_start();
+    if(!isset($_SESSION['username'])){
+      $this -> pageNotFound();
+      exit;
+    }
     if($_POST) {
       $movie = $_POST;
       $Movies = $this->model('Movies');
@@ -59,6 +63,11 @@ class Movie extends Controller {
 
 
   public function delete($id = null) {
+    session_start();
+    if(!isset($_SESSION['username'])){
+      $this -> pageNotFound();
+      exit;
+    }
     if (is_numeric($id)) {
 
       $Movies = $this->model('Movies');
@@ -74,6 +83,11 @@ class Movie extends Controller {
   
 
   public function update($id = null) {
+    session_start();
+    if(!isset($_SESSION['username'])){
+      $this -> pageNotFound();
+      exit;
+    }
     if($_POST) {
       $movie = $_POST;
     
