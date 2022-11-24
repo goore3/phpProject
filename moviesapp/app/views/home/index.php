@@ -16,8 +16,8 @@
                 <img src="https://picsum.photos/id/' . $movie['id'] . '/400/200" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">' . $movie['title'] . '</h5>
-                  <p class="card-text">' . $movie['imdb_rating'] . '</p>
-                  <a href="' . PROJECT_URL . '/movie/get/' . $movie['id'] .'">Detail</a>
+                  <p class="card-text">'.'IMDB Rating: ' . $movie['imdb_rating'] . '</p>
+                  <a class="btn btn-primary" href="' . PROJECT_URL . '/movie/get/' . $movie['id'] .'">Detail</a>
                 </div>
               </div>
             </div>';

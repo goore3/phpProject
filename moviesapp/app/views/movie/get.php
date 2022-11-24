@@ -15,7 +15,7 @@
             echo '<h5>Release Date:</h5><p>' . $movie['release_year'] . '</p>';
           }
         ?>
-      
+      <?php echo '<a class="btn btn-primary" href="'.PROJECT_URL.'">Back</a>' ?>
       <!-- </div> -->
 
 <?php
