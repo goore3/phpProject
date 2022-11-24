@@ -17,11 +17,11 @@ Setup
 5. Add some records to the table
 
 6. Edit phpProject/moviesapp/app/core/App.php file
-  change define('PROJECT_URL', '...')
+  - change define('PROJECT_URL', '...')
   to
   define('PROJECT_URL', 'http://localhost/phpProject-main/moviesapp');
   
-  change define('SERVER_PATH', '...')
+  - change define('SERVER_PATH', '...')
   to
   define('SERVER_PATH', '[PATH_TO_XAMPP]\htdocs\phpProject-main\moviesapp');
   
